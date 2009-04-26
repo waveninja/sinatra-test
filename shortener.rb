@@ -13,5 +13,6 @@ get '/' do
 end
 
 post '/shorten' do
-  params.inspect 
+  url = @shorten.shorten(params['url])
+  redirect "/info/#{url.hash}"
 end
