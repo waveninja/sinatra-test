@@ -18,5 +18,6 @@ post '/shorten' do
 end
 
 get '/info/:hash' do
-  params.inspect
+  url = @shorten.lookup(params[:hash])
+  erb :shortened, :locals => {:url => url}
 end
