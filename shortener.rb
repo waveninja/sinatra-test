@@ -12,7 +12,7 @@ helpers do
 
   def base_url
     base = "http://#{Sinatra::Application.host}"
-    port = Sinatra:Application.port == 80 ? base : base <<
+    port = Sinatra::Application.port == 80 ? base : base <<
 ":#{Sinatra::Application.port}"
   end
 
@@ -34,4 +34,9 @@ end
 get '/info/:hash' do
   url = @shorten.lookup(params[:hash])
   erb :shortened, :locals => {:url => url}
+end
+
+get '/:hash' do
+  url = @shorten.lookup(params[:hash])
+  redirect url.url
 end
