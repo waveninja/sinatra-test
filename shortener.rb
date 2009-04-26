@@ -5,23 +5,3 @@ get '/' do
   erb :home
 end
 
-use_in_file_templates!
-
-__END__
-
-
-@@ home
-
-<h1>Shortener</h1>
-
-<p>
-  Shortener makes your long URLs shorter. No longer will you have to worry about sending people links that get messed up by IM or email!
-</p>
-
-<form action="/shorten" method="post" accept-charset="utf-8">
-  <input type="text" name="url" value="Paste a URL..." id="url">
-
-  <input type="submit" value="..and shorten it!">
-</form>
-
-
